@@ -139,7 +139,7 @@ const AllRooms = () => {
                         <StarRating />
                         <p className='ml-2'>200+ reviews</p>
                     </div>
-                    <div className='flex items-center gap-1 text-gray-500 mt-2 test-sm'>
+                    <div className='flex items-center gap-1 text-gray-500 mt-2 text-sm'>
                         <img src={assets.locationIcon} alt="location-icon" />
                         <span>{room.hotel.address}</span>
                     </div>
@@ -167,7 +167,7 @@ const AllRooms = () => {
             <div className='text-xs cursor-pointer'>
                 <span onClick={()=>setOpenFilters(!openFilters)} className='lg:hidden'>
                     {openFilters ? 'HIDE' : 'SHOW'}</span>
-                <span className='hidden lg:block'>CLEAR</span>
+                <span onClick={clearFilters} className='hidden lg:block cursor-pointer text-blue-600'>CLEAR</span>
             </div>
         </div>
 
@@ -175,7 +175,7 @@ const AllRooms = () => {
             <div className='px-5 pt-5'>
                 <p className='font-medium text-gray-800 pb-2'>Popular filters</p>
                 {roomTypes.map((room, index)=>(
-                    <CheckBox key={index} label={room} selected={selectedFilters.roomType.includes(room)} onChange={(checked)=>handleFilterChange(checked, room, 'roomTypes')}/>
+                    <CheckBox key={index} label={room} selected={selectedFilters.roomType.includes(room)} onChange={(checked)=>handleFilterChange(checked, room, 'roomType')}/>
                 ))}
             </div>
             <div className='px-5 pt-5'>
